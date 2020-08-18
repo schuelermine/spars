@@ -1,0 +1,12 @@
+dist-newstyle
+notesonhaskell.txt
+*.log
+*.hi
+*.o
+*.hsx
+*.ignore
+*.ignore.*
+CompileToTest.hs
+.stack-work
+stack*.yaml.lock
+*.bkp
