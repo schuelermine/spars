@@ -37,11 +37,21 @@ thenP p1 p2 str =
         s2 = Set.unions $ Set.map f s1
     in  s2
 
+bindP :: Ord b => Parser a -> (a -> Parser b) -> Parser b
+bindP p f str = Set.unions . Set.map (uncurry f) $ p str
+
+combindP :: (Ord c, Ord b) => (a -> b -> c) -> Parser a -> (a -> Parser b) -> Parser c
+combindP f p g str = Set.unions . Set.map q $ p str where
+    q (x, s) = Set.map (first $ f x) $ g x s
+
 orP :: Ord a => Parser a -> Parser a -> Parser a
 orP p1 p2 str = Set.union (p1 str) (p2 str)
 
 eitherP :: (Ord a, Ord b) => Parser a -> Parser b -> Parser (Either a b)
-eitherP p1 p2 str = Set.union (Set.map (first Left) $ p1 str) (Set.map (first Right) $ p2 str)
+eitherP p1 p2 str = 
+    let left = (Set.map (first Left) $ p1 str)
+        right = (Set.map (first Right) $ p2 str)
+    in  Set.union left right
 
 andP :: (Ord a, Ord b) => Parser a -> Parser b -> Parser (a, b)
 andP p1 p2 str = crossClasses (p1 str) (p2 str)
