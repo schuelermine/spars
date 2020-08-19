@@ -5,7 +5,7 @@ module Utils (crossClasses) where
 import qualified Data.Map.Strict as Map
 import qualified Data.Set as Set
 
-crossClasses :: (Ord k, Ord a, Ord b) => (a -> b -> c) -> Set.Set (a, k) -> Set.Set (b, k) -> Set.Set ((a, b), k)
+crossClasses :: (Ord k, Ord a, Ord b) => Set.Set (a, k) -> Set.Set (b, k) -> Set.Set ((a, b), k)
 crossClasses set1 set2 =
     let map1 = groupS' set1
         map2 = groupS' set2
