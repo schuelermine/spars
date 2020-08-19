@@ -59,7 +59,7 @@ library
   other-extensions:    TupleSections
 
   -- Other library packages from which modules are imported.
-  build-depends:       base, containers, these
+  build-depends:       base, containers
 
   -- Directories containing source files.
   -- hs-source-dirs:
