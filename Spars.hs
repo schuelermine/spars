@@ -12,8 +12,6 @@ module Spars (
 
 import Utils
 
-import Data.These
-
 import qualified Data.Set as Set
 import qualified Data.Map.Strict as Map
 import Data.Bifunctor
@@ -44,9 +42,6 @@ orP p1 p2 str = Set.union (p1 str) (p2 str)
 
 eitherP :: (Ord a, Ord b) => Parser a -> Parser b -> Parser (Either a b)
 eitherP p1 p2 str = Set.union (Set.map (first Left) $ p1 str) (Set.map (first Right) $ p2 str)
-
-theseP :: Parser a -> Parser b -> Parser (These a b)
-theseP p1 p2 str = undefined
 
 andP :: (Ord a, Ord b) => Parser a -> Parser b -> Parser (a, b)
 andP p1 p2 str = crossClasses (p1 str) (p2 str)
