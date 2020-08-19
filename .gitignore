@@ -8,5 +8,5 @@ notesonhaskell.txt
 *.ignore.*
 CompileToTest.hs
 .stack-work
-stack*.yaml.lock
+stack.yaml.lock
 *.bkp
