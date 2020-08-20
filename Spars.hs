@@ -44,6 +44,15 @@ combindP :: (Ord c, Ord b) => (a -> b -> c) -> Parser a -> (a -> Parser b) -> Pa
 combindP f p g str = Set.unions . Set.map q $ p str where
     q (x, s) = Set.map (first $ f x) $ g x s
 
+join1P :: Ord a => Parser (Parser a) -> Parser a
+join1P p str = Set.unions . Set.map (uncurry ($)) $ p str
+
+join2P :: Ord a => Parser (Parser a) -> Parser a
+join2P p str = Set.unions . Set.map (($ str) . fst) $ p str
+
+discardP :: Parser a -> Parser ()
+discardP p = Set.map (first $ const ()) . p
+
 orP :: Ord a => Parser a -> Parser a -> Parser a
 orP p1 p2 str = Set.union (p1 str) (p2 str)
 
