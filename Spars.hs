@@ -1,14 +1,6 @@
 {-# LANGUAGE TupleSections #-}
 
-module Spars (
-    mapP,
-    constP,
-    idP,
-    nullP,
-    thenP,
-    orP,
-    eitherP
-) where
+module Spars where
 
 import Utils
 
