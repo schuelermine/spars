@@ -10,3 +10,4 @@ CompileToTest.hs
 .stack-work
 stack.yaml.lock
 *.bkp
+sdist
