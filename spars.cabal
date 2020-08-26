@@ -5,19 +5,19 @@ cabal-version:       2.4
 name:                spars
 version:             0.1.0.0
 synopsis:            A sparse set-based parsing library for Haskell.
--- description:
-homepage:            github.com/schuelermine/spars
--- bug-reports:
+description:         Spars is a lightweight parsing package that uses sets to store parse results to avoid duplicates.
+homepage:            https://github.com/schuelermine/spars
+bug-reports:         https://github.com/schuelermine/spars/issues
 license:             MIT
 license-file:        LICENSE
 author:              anselmschueler
 maintainer:          git@anselmschueler.com
--- copyright:
+copyright:           © Anselm David Schüler 2020
 category:            Text
 extra-source-files:  README.md, CHANGELOG.md
 
 library
-  exposed-modules:     Utils, Spars
+  exposed-modules:     Spars
   -- other-modules:
   other-extensions:    TupleSections
   build-depends:       base ^>=4.14.0.0, containers ^>=0.6.2.1
