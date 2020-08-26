@@ -11,3 +11,4 @@ CompileToTest.hs
 stack.yaml.lock
 *.bkp
 sdist
+*.save0
