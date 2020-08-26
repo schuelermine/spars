@@ -15,13 +15,13 @@ name:                spars
 version:             0.1.0.0
 
 -- A short (one-line) description of the package.
--- synopsis:
+synopsis: A sparse set-based parsing library for Haskell.
 
 -- A longer description of the package.
 -- description:
 
 -- A URL where users can report bugs.
--- bug-reports:
+bug-reports: https://github.com/schuelermine/spars/issues
 
 -- The license under which the package is released.
 license:             MIT
